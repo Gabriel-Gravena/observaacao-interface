@@ -94,8 +94,8 @@ export function CitizenRequestDetailsView({ id }: { id: string }) {
   return (
     <>
       <PageHeader
-        title="Detalhe da solicitacao"
-        description="Consulte as informacoes e o historico de atendimento."
+        title="Detalhe da solicitação"
+        description="Consulte as informações e o histórico de atendimento."
         action={
           <div className="flex gap-2">
             <Button variant="outline" onClick={() => setEditOpen(true)}>
@@ -103,8 +103,8 @@ export function CitizenRequestDetailsView({ id }: { id: string }) {
               Editar
             </Button>
             <ConfirmDeleteDialog
-              title="Excluir solicitacao?"
-              description="Esta acao nao pode ser desfeita."
+              title="Excluir solicitação?"
+              description="Esta ação não pode ser desfeita."
               isDeleting={isDeleting}
               onConfirm={handleDelete}
               trigger={
@@ -119,14 +119,14 @@ export function CitizenRequestDetailsView({ id }: { id: string }) {
       />
       <RequestDetails request={request} />
       <section className="surface-panel mt-6 p-5 sm:p-6">
-        <h2 className="mb-5 text-lg font-semibold">Historico</h2>
+        <h2 className="mb-5 text-lg font-semibold">Histórico</h2>
         <RequestHistoryTimeline history={history} />
       </section>
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
         <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Editar solicitacao</DialogTitle>
-            <DialogDescription>Atualize as informacoes registradas.</DialogDescription>
+            <DialogTitle>Editar solicitação</DialogTitle>
+            <DialogDescription>Atualize as informações registradas.</DialogDescription>
           </DialogHeader>
           {categoriesLoading ? (
             <LoadingState rows={5} />

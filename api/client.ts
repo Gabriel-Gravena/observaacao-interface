@@ -21,7 +21,7 @@ api.interceptors.response.use(
       !window.location.pathname.startsWith(routes.login) &&
       !window.location.pathname.startsWith(routes.register)
     ) {
-      window.dispatchEvent(new Event("observaacao:unauthorized"))
+      window.dispatchEvent(new Event("observaação:unauthorized"))
       window.location.assign(routes.login)
     }
 
@@ -35,7 +35,7 @@ api.interceptors.response.use(
         await api.get("/auth/me")
         window.location.assign(routes.accessDenied)
       } catch {
-        window.dispatchEvent(new Event("observaacao:unauthorized"))
+        window.dispatchEvent(new Event("observaação:unauthorized"))
         window.location.assign(routes.login)
       }
     }
@@ -46,7 +46,7 @@ api.interceptors.response.use(
 
 export function getApiErrorMessage(
   error: unknown,
-  fallback = "Nao foi possivel concluir a solicitacao."
+  fallback = "Não foi possivel concluir a solicitação."
 ) {
   if (!axios.isAxiosError<ApiErrorResponse | string>(error)) {
     return fallback

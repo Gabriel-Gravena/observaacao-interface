@@ -15,17 +15,17 @@ export default function RootLayout({
             <span className="flex size-10 items-center justify-center rounded-lg bg-white/12">
               <ShieldCheck className="size-5" />
             </span>
-            ObservaAcao
+            ObservaAção
           </div>
           <div className="mt-24 max-w-md">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary-foreground/70">Servico publico digital</p>
             <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight">Demandas municipais com acompanhamento claro.</h2>
-            <p className="mt-5 text-base leading-7 text-primary-foreground/75">Registre solicitacoes, acompanhe prazos e mantenha o historico de cada atendimento.</p>
+            <p className="mt-5 text-base leading-7 text-primary-foreground/75">Registre solicitações, acompanhe prazos e mantenha o histórico de cada atendimento.</p>
           </div>
         </div>
         <div className="relative grid gap-3 text-sm text-primary-foreground/80">
-          <span className="flex items-center gap-3"><CheckCircle2 className="size-4" /> Historico rastreavel</span>
-          <span className="flex items-center gap-3"><Building2 className="size-4" /> Atendimento municipal organizado</span>
+          <span className="flex items-center gap-3"><CheckCircle2 className="size-4" /> Histórico rastreavel</span>
+          <span className="flex items-center gap-3"><Building2 className="size-4" /> Atendimento Municipal organizado</span>
         </div>
       </aside>
       <section className="flex min-h-screen items-center justify-center px-4 py-10 sm:px-8">

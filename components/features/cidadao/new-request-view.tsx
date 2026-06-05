@@ -32,7 +32,7 @@ export function NewRequestView() {
   return (
     <>
       <PageHeader
-        title="Abrir solicitacao"
+        title="Abrir solicitação"
         description="Registre uma demanda publica para acompanhamento."
       />
       <section className="surface-raised p-5 sm:p-7">
@@ -43,7 +43,7 @@ export function NewRequestView() {
         ) : activeCategories.length === 0 ? (
           <EmptyState
             title="Nenhuma categoria disponivel"
-            description="Nao ha categorias ativas para abrir uma solicitacao neste momento."
+            description="Não ha categorias ativas para abrir uma solicitação neste momento."
           />
         ) : (
           <RequestForm categories={activeCategories} onSuccess={setCreatedRequest} />
@@ -52,7 +52,7 @@ export function NewRequestView() {
       <Dialog open={Boolean(createdRequest)} onOpenChange={(open) => !open && setCreatedRequest(null)}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Solicitacao registrada</DialogTitle>
+            <DialogTitle>Solicitação registrada</DialogTitle>
             <DialogDescription>
               Guarde o protocolo para acompanhar o andamento.
             </DialogDescription>

@@ -73,7 +73,7 @@ export function RequestForm({
     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)} noValidate>
       {errors.root?.message && <Alert>{errors.root.message}</Alert>}
       {categories.length === 0 && (
-        <Alert>Nao ha categorias disponiveis para salvar esta solicitacao.</Alert>
+        <Alert>Não ha categorias disponiveis para salvar esta solicitação.</Alert>
       )}
       <Field label="Titulo" htmlFor="titulo" error={errors.titulo?.message}>
         <Input id="titulo" aria-invalid={Boolean(errors.titulo)} {...register("titulo")} />
@@ -147,7 +147,7 @@ export function RequestForm({
             <div>
               <Label htmlFor="anonima">Registrar como anonima</Label>
               <p className="mt-1 text-xs text-muted-foreground">
-                Sua identidade nao sera exibida durante o atendimento.
+                Sua identidade não sera exibida durante o atendimento.
               </p>
             </div>
           </div>
@@ -164,7 +164,7 @@ export function RequestForm({
             ? "Salvando..."
             : request
               ? "Salvar alteracoes"
-              : "Abrir solicitacao"}
+              : "Abrir solicitação"}
         </Button>
       </div>
     </form>

@@ -7,7 +7,7 @@ variaveis em classes Tailwind.
 Em vez de pensar em cores soltas, pense nos tokens como papeis visuais da
 interface.
 
-## Base da aplicacao
+## Base da aplicação
 
 Use no fundo geral das telas e no texto principal.
 
@@ -17,12 +17,12 @@ Use no fundo geral das telas e no texto principal.
 </main>
 ```
 
-- `background`: fundo geral da aplicacao.
+- `background`: fundo geral da aplicação.
 - `foreground`: texto principal sobre o fundo geral.
 
 ## Cards, paineis e blocos de conteudo
 
-Use em cards de solicitacao, paineis de dashboard, blocos de formulario e areas
+Use em cards de solicitação, paineis de dashboard, blocos de formulario e areas
 elevadas.
 
 ```tsx
@@ -37,19 +37,19 @@ elevadas.
 
 ## Acoes principais
 
-Use para a acao mais importante da tela.
+Use para a ação mais importante da tela.
 
 Exemplos:
 
 - Entrar
-- Abrir solicitacao
+- Abrir solicitação
 - Salvar
 - Atualizar status
 - Consultar protocolo
 
 ```tsx
 <Button className="bg-primary text-primary-foreground">
-  Abrir solicitacao
+  Abrir solicitação
 </Button>
 ```
 
@@ -58,14 +58,14 @@ Exemplos:
 
 ## Acoes secundarias
 
-Use quando a acao existe, mas nao e a principal.
+Use quando a ação existe, mas não e a principal.
 
 Exemplos:
 
 - Voltar
 - Ver detalhes
 - Limpar filtros
-- Cancelar uma edicao
+- Cancelar uma edição
 
 ```tsx
 <Button className="bg-secondary text-secondary-foreground">
@@ -73,23 +73,23 @@ Exemplos:
 </Button>
 ```
 
-- `secondary`: fundo de acao secundaria.
+- `secondary`: fundo de ação secundaria.
 - `secondary-foreground`: texto sobre fundo secundario.
 
-## Informacoes discretas
+## Informações discretas
 
 Use para descricoes, areas de apoio, textos auxiliares, estados vazios e fundos
 neutros.
 
 ```tsx
 <p className="text-muted-foreground">
-  Acompanhe o andamento da sua solicitacao.
+  Acompanhe o andamento da sua solicitação.
 </p>
 ```
 
 ```tsx
 <div className="rounded-md bg-muted p-3 text-muted-foreground">
-  Nenhuma solicitacao encontrada.
+  Nenhuma solicitação encontrada.
 </div>
 ```
 
@@ -117,7 +117,7 @@ Exemplos:
 
 ## Erros e acoes destrutivas
 
-Use apenas para erro, falha, exclusao ou situacoes realmente criticas.
+Use apenas para erro, falha, exclusão ou situacoes realmente criticas.
 
 ```tsx
 <Button className="bg-destructive text-white">
@@ -125,9 +125,9 @@ Use apenas para erro, falha, exclusao ou situacoes realmente criticas.
 </Button>
 ```
 
-- `destructive`: cor de erro ou acao destrutiva.
+- `destructive`: cor de erro ou ação destrutiva.
 
-Evite usar vermelho como cor principal da aplicacao. Assim ele continua forte
+Evite usar vermelho como cor principal da aplicação. Assim ele continua forte
 quando representar erro, atraso ou prioridade critica.
 
 ## Bordas, inputs e foco
@@ -142,9 +142,9 @@ Esses tokens sao usados por muitos componentes do shadcn/ui.
 - `input`: bordas de campos de formulario.
 - `ring`: foco de componentes interativos.
 
-## Status da solicitacao
+## Status da solicitação
 
-Use esses tokens em badges, tags, timelines e detalhes da solicitacao.
+Use esses tokens em badges, tags, timelines e detalhes da solicitação.
 
 ```tsx
 <span className="rounded-md bg-status-triage px-2 py-1 text-status-triage-foreground">
@@ -170,7 +170,7 @@ bg-status-resolved text-status-resolved-foreground
 bg-status-closed text-status-closed-foreground
 ```
 
-## Prioridade da solicitacao
+## Prioridade da solicitação
 
 Use esses tokens em badges de prioridade, principalmente nas listas do servidor.
 
@@ -200,7 +200,7 @@ bg-priority-critical text-priority-critical-foreground
 
 Status mostra a etapa do processo. Prioridade mostra urgencia.
 
-Uma mesma solicitacao pode ter os dois:
+Uma mesma solicitação pode ter os dois:
 
 ```tsx
 <div className="flex gap-2">

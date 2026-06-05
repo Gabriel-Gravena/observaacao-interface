@@ -42,14 +42,14 @@ export function RegisterForm() {
       })
       router.replace(routes.citizenRequests)
     } catch (error) {
-      setApiError(getApiErrorMessage(error, "Nao foi possivel criar sua conta."))
+      setApiError(getApiErrorMessage(error, "Não foi possivel criar sua conta."))
     }
   }
 
   return (
     <AuthCard
       title="Crie sua conta"
-      description="Registre e acompanhe solicitacoes publicas do seu municipio."
+      description="Registre e acompanhe solicitações publicas do seu municipio."
     >
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} noValidate>
         {apiError && <Alert>{apiError}</Alert>}

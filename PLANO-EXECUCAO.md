@@ -1,14 +1,14 @@
-# Plano de Execucao - ObservaAcao
+# Plano de Execucao - ObservaAção
 
 ## Status
 
-- Fase 1 - Fundacao e autenticacao: concluida.
+- Fase 1 - Fundação e autenticação: concluida.
 - Fase 2 - Base visual autenticada e componentes do dominio: concluida.
-- Fase 3 - Fluxo do cidadao: concluida.
+- Fase 3 - Fluxo do cidadão: concluida.
 - Fase 4 - Fluxo do servidor: concluida.
 - Refinamento visual e tema claro/escuro: concluido.
-- Fase 5 - Robustez, acessibilidade e validacao: concluida.
-- Fase 6 - Preparacao de entrega e demonstracao: concluida.
+- Fase 5 - Robustez, acessibilidade e validação: concluida.
+- Fase 6 - Preparação de entrega e demonstração: concluida.
 
 ## 1. Estado Atual
 
@@ -22,15 +22,15 @@ Ja existem:
 - um formulario visual inicial de login;
 - componentes base do shadcn/ui;
 - tokens de status e prioridade em `app/globals.css`;
-- documentacao da API em `DOCUMENTACAO-API.md`.
+- documentação da API em `DOCUMENTACAO-API.md`.
 
 O frontend funcional foi implementado. Permanecem como dependencias externas
-para a demonstracao:
+para a demonstração:
 
 - backend executando e acessivel;
 - conta `SERVIDOR` previamente criada;
 - categorias ativas cadastradas;
-- validacao visual manual em navegadores e tamanhos de tela reais.
+- validação visual manual em navegadores e tamanhos de tela reais.
 
 ## 2. Decisoes E Pendencias De Contrato
 
@@ -39,13 +39,13 @@ para a demonstracao:
 - Usar `GET /auth/me` como fonte de verdade da sessao e da role.
 - Respeitar os enums e bodies exatamente como definidos em
   `DOCUMENTACAO-API.md`.
-- Derivar os dados do dashboard da fila geral, pois nao existe endpoint
+- Derivar os dados do dashboard da fila geral, pois não existe endpoint
   especifico.
-- O arquivo solicitado `com/API_FRONTEND.md` nao existe no projeto. A referencia
+- O arquivo solicitado `com/API_FRONTEND.md` não existe no projeto. A referencia
   adotada sera `DOCUMENTACAO-API.md`.
 - A consulta por protocolo foi descrita como publica no escopo visual, mas o
-  endpoint `GET /solicitacoes/protocolo/{protocolo}` exige autenticacao na
-  documentacao atual. O frontend deve tratar a rota como autenticada ate que o
+  endpoint `GET /solicitacoes/protocolo/{protocolo}` exige autenticação na
+  documentação atual. O frontend deve tratar a rota como autenticada ate que o
   contrato do backend seja alterado.
 - Axios e React Hook Form estao instalados e integrados.
 
@@ -58,18 +58,18 @@ api/
   client.ts
   auth.ts
   categorias.ts
-  solicitacoes.ts
+  solicitações.ts
   types.ts
 ```
 
 Responsabilidades:
 
-- `client.ts`: instancia Axios, `withCredentials`, normalizacao de erros e
+- `client.ts`: instancia Axios, `withCredentials`, normalização de erros e
   tratamento central de `401`;
-- `auth.ts`: cadastro, login, logout e usuario atual;
+- `auth.ts`: cadastro, login, logout e usuário atual;
 - `categorias.ts`: CRUD de categorias;
-- `solicitacoes.ts`: criacao, listas, detalhes, historico, atualizacao, status e
-  exclusao;
+- `solicitações.ts`: criação, listas, detalhes, histórico, atualização, status e
+  exclusão;
 - `types.ts`: tipos derivados exclusivamente dos contratos documentados.
 
 ### Rotas
@@ -80,17 +80,17 @@ app/
     login/
     register/
     consultar-protocolo/
-  (cidadao)/
-    cidadao/
-      solicitacoes/
-      solicitacoes/nova/
-      solicitacoes/[id]/
+  (cidadão)/
+    cidadão/
+      solicitações/
+      solicitações/nova/
+      solicitações/[id]/
   (servidor)/
     servidor/
       dashboard/
-      solicitacoes/
-      solicitacoes/atrasadas/
-      solicitacoes/[id]/
+      solicitações/
+      solicitações/atrasadas/
+      solicitações/[id]/
       categorias/
   acesso-negado/
 ```
@@ -104,7 +104,7 @@ e acoes conforme a role.
 components/features/
   auth/
   layout/
-  solicitacoes/
+  solicitações/
     status-badge.tsx
     priority-badge.tsx
     protocol-display.tsx
@@ -148,9 +148,9 @@ hooks/
 Hooks serao criados somente quando a mesma logica de estado remoto for usada em
 mais de um componente.
 
-## 4. Fases De Implementacao
+## 4. Fases De Implementação
 
-### Fase 1 - Fundacao E Autenticacao
+### Fase 1 - Fundação E Autenticação
 
 - instalar Axios e React Hook Form;
 - adicionar componentes shadcn necessarios para formularios, tabelas, dialogs,
@@ -158,42 +158,42 @@ mais de um componente.
 - criar tipos, rotas, constantes e schemas Zod;
 - criar o cliente HTTP unico e modulos iniciais da API;
 - implementar cadastro, login, logout e consulta de sessao;
-- redirecionar por role apos autenticacao;
+- redirecionar por role apos autenticação;
 - criar protecao de rotas e tela de acesso negado;
 - substituir a pagina inicial padrao por redirecionamento coerente;
-- ajustar metadata, idioma e identidade ObservaAcao.
+- ajustar metadata, idioma e identidade ObservaAção.
 
-**Criterio de conclusao:** cidadao e servidor entram, sao direcionados para suas
+**Criterio de conclusao:** cidadão e servidor entram, sao direcionados para suas
 areas, podem sair, e `401`/`403` possuem tratamento claro.
 
 ### Fase 2 - Base Visual Autenticada E Componentes Do Dominio
 
 - criar layout responsivo com sidebar no desktop e sheet no mobile;
-- criar navegacao por role;
+- criar navegação por role;
 - implementar badges de status e prioridade;
 - implementar exibicao e copia de protocolo;
 - implementar estados compartilhados de carregamento, erro e vazio;
-- implementar timeline de historico e confirmacao de exclusao;
+- implementar timeline de histórico e confirmação de exclusão;
 - criar helpers puros de data, prazo, status e prioridade.
 
 **Criterio de conclusao:** os componentes centrais podem ser reutilizados nas
-duas areas sem duplicacao de regras visuais ou de dominio.
+duas areas sem duplicação de regras visuais ou de dominio.
 
-### Fase 3 - Fluxo Do Cidadao
+### Fase 3 - Fluxo Do Cidadão
 
-- implementar "Minhas solicitacoes" com resumo, filtros locais e lista
+- implementar "Minhas solicitações" com resumo, filtros locais e lista
   responsiva;
-- implementar formulario guiado de nova solicitacao;
+- implementar formulario guiado de nova solicitação;
 - carregar somente categorias ativas para abertura;
 - forcar e bloquear anonimato ao selecionar categoria sensivel;
-- exibir confirmacao com protocolo apos criacao;
-- implementar detalhe com historico;
-- permitir edicao e exclusao com confirmacao quando aplicavel;
-- implementar consulta por protocolo respeitando a autenticacao exigida pela
+- exibir confirmação com protocolo apos criação;
+- implementar detalhe com histórico;
+- permitir edição e exclusão com confirmação quando aplicavel;
+- implementar consulta por protocolo respeitando a autenticação exigida pela
   API.
 
-**Criterio de conclusao:** um cidadao consegue criar conta, abrir uma
-solicitacao, copiar o protocolo e acompanhar seus detalhes e historico.
+**Criterio de conclusao:** um cidadão consegue criar conta, abrir uma
+solicitação, copiar o protocolo e acompanhar seus detalhes e histórico.
 
 ### Fase 4 - Fluxo Do Servidor
 
@@ -204,21 +204,21 @@ solicitacao, copiar o protocolo e acompanhar seus detalhes e historico.
 - implementar dashboard derivado da fila geral;
 - implementar detalhe completo;
 - permitir apenas o proximo status do fluxo;
-- exigir comentario e confirmacao para atualizar status;
-- recarregar solicitacao e timeline apos atualizacao;
-- ocultar identidade em solicitacoes anonimas;
-- implementar CRUD de categorias, sensibilidade e ativacao.
+- exigir comentario e confirmação para atualizar status;
+- recarregar solicitação e timeline apos atualização;
+- ocultar identidade em solicitações anonimas;
+- implementar CRUD de categorias, sensibilidade e ativação.
 
 **Criterio de conclusao:** um servidor consegue filtrar a fila, abrir uma
 demanda, avancar o status com comentario e administrar categorias.
 
-### Fase 5 - Robustez, Acessibilidade E Validacao
+### Fase 5 - Robustez, Acessibilidade E Validação
 
 - revisar validacoes e mensagens de erro da API;
 - confirmar estados de carregamento, erro, vazio e sucesso em todas as telas;
-- revisar foco, labels, navegacao por teclado e contraste;
+- revisar foco, labels, navegação por teclado e contraste;
 - validar layouts em desktop e mobile com o Browser;
-- validar que textos nao se sobrepoem;
+- validar que textos não se sobrepoem;
 - validar envio de cookies em chamadas autenticadas;
 - validar permissoes e ausencia de acoes indevidas por role;
 - executar `npm run lint` e `npm run build`;
@@ -239,23 +239,23 @@ mobile.
 **Criterio de conclusao:** a interface possui acabamento consistente, permanece
 discreta e funcional e oferece temas claro e escuro.
 
-### Fase 6 - Preparacao De Entrega E Demonstracao
+### Fase 6 - Preparação De Entrega E Demonstração
 
-- consolidar configuracao de ambiente;
-- disponibilizar roteiro de demonstracao dos perfis;
+- consolidar configuração de ambiente;
+- disponibilizar roteiro de demonstração dos perfis;
 - documentar pre-requisitos e limitacoes do contrato;
-- consolidar scripts de validacao;
+- consolidar scripts de validação;
 - revisar a ordem recomendada de entrega.
 
 **Criterio de conclusao:** outro desenvolvedor consegue configurar, validar e
-demonstrar o frontend usando a documentacao do repositorio.
+demonstrar o frontend usando a documentação do repositorio.
 
 ## 5. Ordem Recomendada De Entrega
 
-- [x] Fundacao HTTP, tipos, validacoes e autenticacao.
+- [x] Fundação HTTP, tipos, validacoes e autenticação.
 - [x] Layout autenticado e componentes compartilhados.
-- [x] Criacao e acompanhamento de solicitacoes pelo cidadao.
-- [x] Fila e atualizacao de status pelo servidor.
+- [x] Criação e acompanhamento de solicitações pelo cidadão.
+- [x] Fila e atualização de status pelo servidor.
 - [x] Categorias, dashboard e atrasadas.
 - [x] Revisao de estados, permissoes, responsividade, lint e build.
 
@@ -265,31 +265,31 @@ validar cedo o fluxo principal sem depender de todas as telas administrativas.
 Evidencias de fechamento:
 
 - cliente Axios unico com `withCredentials: true`;
-- autenticacao baseada em `/auth/me` e protecao por role;
+- autenticação baseada em `/auth/me` e protecao por role;
 - formularios com React Hook Form e Zod;
-- fluxos de cidadao e servidor integrados aos contratos documentados;
+- fluxos de cidadão e servidor integrados aos contratos documentados;
 - estados globais e locais de carregamento, erro e vazio;
 - temas claro e escuro;
 - scripts `lint`, `typecheck`, `build` e `validate`.
 
-## 6. Matriz De Validacao Final
+## 6. Matriz De Validação Final
 
-| Area | Validacao |
+| Area | Validação |
 | --- | --- |
-| Autenticacao | Cookie HTTP-only enviado com `withCredentials`; logout funcional |
+| Autenticação | Cookie HTTP-only enviado com `withCredentials`; logout funcional |
 | Roles | CIDADAO e SERVIDOR veem apenas rotas e acoes permitidas |
 | Formularios | Zod, mensagens proximas, envio bloqueado e feedback |
-| Solicitacoes | Criacao, listas, detalhes, historico, edicao e exclusao |
+| Solicitações | Criação, listas, detalhes, histórico, edição e exclusão |
 | Status | Apenas proxima etapa permitida, com comentario obrigatorio |
-| Anonimato | Categoria sensivel forca anonimato; identidade nao aparece |
-| Categorias | CRUD, ativacao e sensibilidade funcionais |
+| Anonimato | Categoria sensivel forca anonimato; identidade não aparece |
+| Categorias | CRUD, ativação e sensibilidade funcionais |
 | Estados | Carregando, erro, vazio, sucesso e confirmacoes presentes |
 | Responsividade | Desktop e mobile sem sobreposicoes |
 | Qualidade | `npm run lint` e `npm run build` sem erros |
 
-## 7. Fora Do Escopo Sem Alteracao Do Backend
+## 7. Fora Do Escopo Sem Alteração Do Backend
 
 - tornar realmente publica a consulta por protocolo;
 - criar endpoint dedicado de dashboard;
 - alterar regras de permissao ou transicao de status;
-- inventar paginacao, campos ou respostas nao documentadas.
+- inventar paginação, campos ou respostas não documentadas.

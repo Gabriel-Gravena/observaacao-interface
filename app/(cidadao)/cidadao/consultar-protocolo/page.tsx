@@ -12,7 +12,7 @@ export default function ProtocolSearchPage() {
     <>
       <PageHeader
         title="Consultar protocolo"
-        description="Informe um protocolo para consultar os detalhes e o historico."
+        description="Informe um protocolo para consultar os detalhes e o histórico."
       />
       <ProtocolSearchView />
     </>

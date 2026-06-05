@@ -45,7 +45,7 @@ export default function LoginForm() {
   return (
     <AuthCard
       title="Entre na sua conta"
-      description="Acompanhe solicitacoes ou acesse a fila de atendimento."
+      description="Acompanhe solicitações ou acesse a fila de atendimento."
     >
       <form className="space-y-5" onSubmit={handleSubmit(onSubmit)} noValidate>
         {apiError && <Alert>{apiError}</Alert>}
@@ -80,7 +80,7 @@ export default function LoginForm() {
           {isSubmitting ? "Entrando..." : "Entrar"}
         </Button>
         <p className="text-center text-sm text-muted-foreground">
-          Ainda nao possui uma conta?{" "}
+          Ainda não possui uma conta?{" "}
           <Link className="font-medium text-primary hover:underline" href={routes.register}>
             Criar conta
           </Link>

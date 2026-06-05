@@ -13,10 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "ObservaAcao",
-    template: "%s | ObservaAcao",
+    default: "ObservaAção",
+    template: "%s | ObservaAção",
   },
-  description: "Acompanhamento e gestao de solicitacoes publicas municipais.",
+  description: "Acompanhamento e gestão de solicitações publicas municipais.",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{var t=localStorage.getItem('observaacao-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}",
+              "try{var t=localStorage.getItem('observaação-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}",
           }}
         />
       </head>

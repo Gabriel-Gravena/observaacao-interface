@@ -76,9 +76,9 @@ export function UpdateStatusDialog({
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Confirmar atualizacao de status</DialogTitle>
+          <DialogTitle>Confirmar atualização de status</DialogTitle>
           <DialogDescription>
-            A solicitacao avancara para {formatStatusLabel(nextStatus)}.
+            A solicitação avancara para {formatStatusLabel(nextStatus)}.
           </DialogDescription>
         </DialogHeader>
         {errors.root?.message && <Alert>{errors.root.message}</Alert>}
@@ -95,7 +95,7 @@ export function UpdateStatusDialog({
         </div>
         <DialogFooter>
           <Button onClick={handleSubmit(submit)} disabled={isSubmitting}>
-            {isSubmitting ? "Atualizando..." : "Confirmar atualizacao"}
+            {isSubmitting ? "Atualizando..." : "Confirmar atualização"}
           </Button>
         </DialogFooter>
       </DialogContent>

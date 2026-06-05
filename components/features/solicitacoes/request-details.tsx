@@ -24,30 +24,30 @@ export function RequestDetails({ request }: { request: Request }) {
         </div>
       </div>
       <dl className="mt-7 grid gap-3 border-t pt-6 sm:grid-cols-2">
-        <Detail label="Descricao" className="sm:col-span-2">
+        <Detail label="Descrição" className="sm:col-span-2">
           {request.descricao}
         </Detail>
-        <Detail label="Localizacao">
+        <Detail label="Localização">
           <span className="flex items-start gap-2">
             <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
             {request.endereco ? `${request.endereco}, ${request.bairro}` : request.bairro}
           </span>
         </Detail>
-        <Detail label="Prazo alvo">
+        <Detail label="Prazo Alvo">
           <span className="flex items-center gap-2">
             <CalendarDays className="size-4" aria-hidden="true" />
             {formatDateTime(request.prazoAlvo)}
           </span>
         </Detail>
         <Detail label="Data de abertura">{formatDateTime(request.createdAt)}</Detail>
-        <Detail label="Identificacao">
+        <Detail label="Identificação">
           {request.anonima ? (
             <span className="flex items-center gap-2">
               <EyeOff className="size-4" aria-hidden="true" />
-              Solicitacao anonima
+              Anônimo
             </span>
           ) : (
-            "Identificada"
+            request.cidadaoNome ?? "Não informado"
           )}
         </Detail>
       </dl></div>

@@ -9,7 +9,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light")
 
   useEffect(() => {
-    const saved = localStorage.getItem("observaacao-theme") as Theme | null
+    const saved = localStorage.getItem("observaação-theme") as Theme | null
     const initial = saved ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
     document.documentElement.classList.toggle("dark", initial === "dark")
     Promise.resolve().then(() => setTheme(initial))
@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((current) => {
       const next = current === "light" ? "dark" : "light"
       document.documentElement.classList.toggle("dark", next === "dark")
-      localStorage.setItem("observaacao-theme", next)
+      localStorage.setItem("observaação-theme", next)
       return next
     })
   }

@@ -43,14 +43,14 @@ interface NavigationItem {
 
 const navigation: Record<UserRole, NavigationItem[]> = {
   CIDADAO: [
-    { href: routes.citizenRequests, label: "Minhas solicitacoes", icon: Inbox },
-    { href: routes.citizenNewRequest, label: "Abrir solicitacao", icon: Plus },
+    { href: routes.citizenRequests, label: "Minhas solicitações", icon: Inbox },
+    { href: routes.citizenNewRequest, label: "Abrir solicitação", icon: Plus },
     { href: routes.citizenProtocolSearch, label: "Consultar protocolo", icon: Search },
   ],
   SERVIDOR: [
     { href: routes.serverDashboard, label: "Dashboard", icon: Gauge },
-    { href: routes.serverQueue, label: "Fila de atendimento", icon: Inbox },
-    { href: routes.serverOverdue, label: "Demandas atrasadas", icon: AlertTriangle },
+    { href: routes.serverQueue, label: "Fila de Atendimento", icon: Inbox },
+    { href: routes.serverSupport, label: "Apoio Operacional", icon: ShieldCheck },
     { href: routes.serverCategories, label: "Categorias", icon: FolderCog },
   ],
 }
@@ -79,7 +79,7 @@ export function AppShell({
   }
 
   const navContent = (
-    <nav className="space-y-1" aria-label="Navegacao principal">
+    <nav className="space-y-1" aria-label="Navegação principal">
       {navigation[role].map((item) => (
         <NavigationLink
           key={item.href}
@@ -115,7 +115,7 @@ export function AppShell({
         <header className="sticky top-0 z-30 flex h-16 items-center border-b bg-card/90 px-4 shadow-sm backdrop-blur lg:hidden">
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Abrir navegacao">
+              <Button variant="ghost" size="icon" aria-label="Abrir navegação">
                 <Menu />
               </Button>
             </SheetTrigger>
@@ -124,7 +124,7 @@ export function AppShell({
                 <SheetTitle>
                   <Brand />
                 </SheetTitle>
-                <SheetDescription>Navegacao da sua area</SheetDescription>
+                <SheetDescription>Navegação da sua area</SheetDescription>
               </SheetHeader>
               <div className="flex-1 px-3 py-5">{navContent}</div>
               <UserPanel
@@ -153,7 +153,7 @@ function Brand() {
       <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm shadow-primary/25">
         <ShieldCheck className="size-4" aria-hidden="true" />
       </span>
-      <span><span className="block leading-none">ObservaAcao</span><span className="mt-1 block text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">Gestao municipal</span></span>
+      <span><span className="block leading-none">ObservaAção</span><span className="mt-1 block text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">Gestão municipal</span></span>
     </Link>
   )
 }
@@ -205,7 +205,7 @@ function UserPanel({
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="h-auto w-full justify-start gap-3 p-2 text-left hover:bg-card">
             <span className="flex size-10 items-center justify-center rounded-full border bg-card text-primary shadow-sm"><UserCircle /></span>
-            <span className="min-w-0"><span className="block truncate text-sm font-medium">{name}</span><span className="block text-xs text-muted-foreground">{role === "CIDADAO" ? "Cidadao" : "Servidor municipal"}</span></span>
+            <span className="min-w-0"><span className="block truncate text-sm font-medium">{name}</span><span className="block text-xs text-muted-foreground">{role === "CIDADAO" ? "Cidadão" : "Servidor municipal"}</span></span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent side="top" align="start">

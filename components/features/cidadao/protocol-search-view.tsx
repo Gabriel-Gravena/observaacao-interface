@@ -33,7 +33,7 @@ export function ProtocolSearchView() {
       setRequest(foundRequest)
       setHistory(foundHistory)
     } catch (searchError) {
-      setError(getApiErrorMessage(searchError, "Protocolo nao encontrado."))
+      setError(getApiErrorMessage(searchError, "Protocolo não encontrado."))
     } finally {
       setIsSearching(false)
     }
@@ -62,7 +62,7 @@ export function ProtocolSearchView() {
         <>
           <RequestDetails request={request} />
           <section className="rounded-lg border bg-card p-5 sm:p-6">
-            <h2 className="mb-5 text-lg font-semibold">Historico</h2>
+            <h2 className="mb-5 text-lg font-semibold">Histórico</h2>
             <RequestHistoryTimeline history={history} />
           </section>
         </>

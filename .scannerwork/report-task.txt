@@ -1,0 +1,6 @@
+projectKey=AEP---Front
+serverUrl=http://localhost:9000
+serverVersion=26.6.0.123539
+dashboardUrl=http://localhost:9000/dashboard?id=AEP---Front
+ceTaskId=5d0e2e35-28db-40f2-9e26-486c80f4869e
+ceTaskUrl=http://localhost:9000/api/ce/task?id=5d0e2e35-28db-40f2-9e26-486c80f4869e

@@ -19,7 +19,7 @@ export function PageHeader({
       )}
     >
       <div className="border-l-2 border-primary pl-4">
-        <p className="eyebrow mb-2">ObservaAcao</p>
+        <p className="eyebrow mb-2">ObservaAção</p>
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h1>
         {description && (
           <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">

@@ -12,13 +12,13 @@ export function RequestHistoryTimeline({
   if (history.length === 0) {
     return (
       <p className="rounded-md bg-muted p-4 text-sm text-muted-foreground">
-        Nenhuma atualizacao registrada.
+        Nenhuma atualização registrada.
       </p>
     )
   }
 
   return (
-    <ol className="space-y-0" aria-label="Historico da solicitacao">
+    <ol className="space-y-0" aria-label="Histórico da solicitação">
       {history.map((item, index) => (
         <li key={item.id} className="relative grid grid-cols-[1.25rem_1fr] gap-3 pb-6">
           {index < history.length - 1 && (

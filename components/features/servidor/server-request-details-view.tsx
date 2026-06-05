@@ -1,3 +1,65 @@
 "use client"
-import { useCallback,useEffect,useState } from "react"; import { getRequest,getRequestHistory } from "@/api/solicitacoes"; import type { Request,RequestHistory } from "@/api/types"; import { RequestDetails } from "@/components/features/solicitacoes/request-details"; import { RequestHistoryTimeline } from "@/components/features/solicitacoes/request-history-timeline"; import { UpdateStatusDialog } from "@/components/features/solicitacoes/update-status-dialog"; import { ErrorState } from "@/components/features/shared/error-state"; import { LoadingState } from "@/components/features/shared/loading-state"; import { PageHeader } from "@/components/features/shared/page-header"
-export function ServerRequestDetailsView({id}:{id:string}){const[request,setRequest]=useState<Request|null>(null),[history,setHistory]=useState<RequestHistory[]>([]),[loading,setLoading]=useState(true),[error,setError]=useState<unknown>(null);const load=useCallback(async()=>{setLoading(true);try{const[r,h]=await Promise.all([getRequest(id),getRequestHistory(id)]);setRequest(r);setHistory(h);setError(null)}catch(e){setError(e)}finally{setLoading(false)}},[id]);useEffect(()=>{Promise.all([getRequest(id),getRequestHistory(id)]).then(([r,h])=>{setRequest(r);setHistory(h);setLoading(false)},e=>{setError(e);setLoading(false)})},[id]);if(loading)return <LoadingState/>;if(error||!request)return <ErrorState onRetry={load}/>;return <><PageHeader title="Detalhe da solicitacao" description={request.anonima?"Identidade protegida por anonimato.":`Cidadao: ${request.cidadaoNome??"Nao informado"}`} action={<UpdateStatusDialog request={request} onSuccess={()=>void load()}/>}/><RequestDetails request={request}/><section className="surface-panel mt-6 p-6"><h2 className="mb-5 text-lg font-semibold">Historico</h2><RequestHistoryTimeline history={history}/></section></>}
+import { useCallback, useEffect, useState } from "react"
+import { getRequest, getRequestHistory } from "@/api/solicitacoes"
+import type { Request, RequestHistory } from "@/api/types"
+import { RequestDetails } from "@/components/features/solicitacoes/request-details"
+import { RequestHistoryTimeline } from "@/components/features/solicitacoes/request-history-timeline"
+import { UpdateStatusDialog } from "@/components/features/solicitacoes/update-status-dialog"
+import { ErrorState } from "@/components/features/shared/error-state"
+import { LoadingState } from "@/components/features/shared/loading-state"
+import { PageHeader } from "@/components/features/shared/page-header"
+
+export function ServerRequestDetailsView({ id }: { id: string }) {
+  const [request, setRequest] = useState<Request | null>(null)
+  const [history, setHistory] = useState<RequestHistory[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<unknown>(null)
+
+  const load = useCallback(async () => {
+    setLoading(true)
+    try {
+      const [r, h] = await Promise.all([getRequest(id), getRequestHistory(id)])
+      setRequest(r)
+      setHistory(h)
+      setError(null)
+    } catch (e) {
+      setError(e)
+    } finally {
+      setLoading(false)
+    }
+  }, [id])
+
+  useEffect(() => {
+    Promise.all([getRequest(id), getRequestHistory(id)]).then(
+      ([r, h]) => {
+        setRequest(r)
+        setHistory(h)
+        setLoading(false)
+      },
+      (e) => {
+        setError(e)
+        setLoading(false)
+      }
+    )
+  }, [id])
+
+  if (loading) return <LoadingState />
+  if (error || !request) return <ErrorState onRetry={load} />
+
+  const cidadaoNome = request.anonima ? "Anônimo" : (request.cidadaoNome ?? "Não informado")
+
+  return (
+    <>
+      <PageHeader
+        title="Detalhe da Solicitação"
+        description={request.anonima ? "Identidade protegida por anonimato." : `Cidadão: ${cidadaoNome}`}
+        action={<UpdateStatusDialog request={request} onSuccess={() => void load()} />}
+      />
+      <RequestDetails request={request} />
+      <section className="surface-panel mt-6 p-6">
+        <h2 className="mb-5 text-lg font-semibold">Histórico</h2>
+        <RequestHistoryTimeline history={history} />
+      </section>
+    </>
+  )
+}

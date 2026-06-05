@@ -9,8 +9,8 @@ export default function NotFound() {
     <main className="flex min-h-screen items-center justify-center px-4">
       <EmptyState
         className="w-full max-w-lg"
-        title="Pagina nao encontrada"
-        description="O endereco informado nao existe ou nao esta mais disponivel."
+        title="Pagina não encontrada"
+        description="O endereco informado não existe ou não esta mais disponivel."
         action={
           <Button asChild>
             <Link href={routes.home}>Voltar para o inicio</Link>

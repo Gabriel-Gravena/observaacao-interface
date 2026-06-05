@@ -17,7 +17,7 @@ export function AccessDenied() {
         <ShieldX className="mx-auto size-8 text-destructive" aria-hidden="true" />
         <h1 className="mt-4 text-2xl font-semibold">Acesso negado</h1>
         <p className="mt-2 text-muted-foreground">
-          Seu perfil nao possui permissao para acessar esta pagina.
+          Seu perfil não possui permissao para acessar esta pagina.
         </p>
         <Button
           className="mt-6"

@@ -69,7 +69,7 @@ export function CategoriesView() {
     <>
       <PageHeader
         title="Categorias"
-        description="Organize os tipos de solicitacao e suas regras."
+        description="Organize os tipos de solicitação e suas regras."
         action={
           <Button onClick={() => setEditing(null)}>Nova categoria</Button>
         }
@@ -119,7 +119,7 @@ export function CategoriesView() {
                     </Button>
                     <ConfirmDeleteDialog
                       title="Excluir categoria?"
-                      description="Esta acao nao pode ser desfeita."
+                      description="Esta ação não pode ser desfeita."
                       isDeleting={deletingId === category.id}
                       onConfirm={() => handleDelete(category)}
                       trigger={
@@ -137,7 +137,7 @@ export function CategoriesView() {
       ) : (
         <EmptyState
           title="Nenhuma categoria cadastrada"
-          description="Crie a primeira categoria para organizar as solicitacoes."
+          description="Crie a primeira categoria para organizar as solicitações."
         />
       )}
       <Dialog open={editing !== undefined} onOpenChange={(open) => !open && setEditing(undefined)}>

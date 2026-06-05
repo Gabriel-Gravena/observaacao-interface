@@ -53,8 +53,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     )
 
     const clearUser = () => setUser(null)
-    window.addEventListener("observaacao:unauthorized", clearUser)
-    return () => window.removeEventListener("observaacao:unauthorized", clearUser)
+    window.addEventListener("observaação:unauthorized", clearUser)
+    return () => window.removeEventListener("observaação:unauthorized", clearUser)
   }, [])
 
   const value = useMemo<AuthContextValue>(

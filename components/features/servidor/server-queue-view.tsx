@@ -28,7 +28,7 @@ export function ServerQueueView({ overdue = false }: { overdue?: boolean }) {
         title={overdue ? "Demandas atrasadas" : "Fila de atendimento"}
         description={
           overdue
-            ? "Solicitacoes com prazo alvo ultrapassado."
+            ? "Solicitações com prazo alvo ultrapassado."
             : "Priorize e acompanhe as demandas recebidas."
         }
       />
@@ -93,8 +93,8 @@ export function ServerQueueView({ overdue = false }: { overdue?: boolean }) {
         <RequestTable requests={requests} />
       ) : (
         <EmptyState
-          title="Nenhuma solicitacao encontrada"
-          description="Nao ha demandas para os criterios selecionados."
+          title="Nenhuma solicitação encontrada"
+          description="Não ha demandas para os criterios selecionados."
         />
       )}
     </>

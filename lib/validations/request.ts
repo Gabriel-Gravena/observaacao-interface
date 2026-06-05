@@ -7,7 +7,7 @@ export const requestSchema = z.object({
   descricao: z
     .string()
     .trim()
-    .min(10, "Descreva a situacao com pelo menos 10 caracteres."),
+    .min(10, "Descreva a situação com pelo menos 10 caracteres."),
   bairro: z.string().trim().min(2, "Informe o bairro."),
   endereco: z.string().trim(),
   prioridade: z.custom<RequestPriority>((value) =>

@@ -10,7 +10,7 @@ export const routes = {
   citizenProtocolSearch: "/cidadao/consultar-protocolo",
   serverDashboard: "/servidor/dashboard",
   serverQueue: "/servidor/solicitacoes",
-  serverOverdue: "/servidor/solicitacoes/atrasadas",
+  serverSupport: "/servidor/apoio",
   serverCategories: "/servidor/categorias",
 } as const
 

@@ -1,14 +1,14 @@
-# ObservaAcao Frontend
+# ObservaAção Frontend
 
-Frontend da plataforma municipal de acompanhamento e gestao de solicitacoes
+Frontend da plataforma municipal de acompanhamento e gestão de solicitações
 publicas.
 
 ## Requisitos
 
 - Node.js compativel com Next.js 16;
-- backend ObservaAcao executando em `http://localhost:8080`.
+- backend ObservaAção executando em `http://localhost:8080`.
 
-## Configuracao
+## Configuração
 
 Por padrao, o frontend usa:
 
@@ -22,9 +22,9 @@ Para alterar a URL da API, defina:
 NEXT_PUBLIC_API_URL=http://localhost:8080
 ```
 
-O arquivo `.env.example` contem a configuracao de referencia.
+O arquivo `.env.example` contem a configuração de referencia.
 
-A autenticacao utiliza cookie HTTP-only enviado pela API. O frontend nao
+A autenticação utiliza cookie HTTP-only enviado pela API. O frontend nao
 armazena tokens.
 
 ## Execucao
@@ -50,9 +50,9 @@ Para executar todas as verificacoes:
 npm run validate
 ```
 
-## Documentacao
+## Documentação
 
 - `DOCUMENTACAO-API.md`: contratos do backend;
 - `DESIGN_TOKENS.md`: tokens e regras visuais;
-- `PLANO-EXECUCAO.md`: fases e decisoes de implementacao.
-- `ENTREGA-DEMO.md`: pre-requisitos e roteiro de demonstracao.
+- `PLANO-EXECUCAO.md`: fases e decisoes de implementação.
+- `ENTREGA-DEMO.md`: pre-requisitos e roteiro de demonstração.

@@ -3,7 +3,7 @@ import { CircleAlert } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function ErrorState({
-  title = "Nao foi possivel carregar os dados",
+  title = "Não foi possivel carregar os dados",
   description = "Tente novamente em alguns instantes.",
   onRetry,
 }: {

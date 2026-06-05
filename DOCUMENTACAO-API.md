@@ -1,4 +1,4 @@
-# ObservaAcao API - Guia Para o Frontend
+# ObservaAção API - Guia Para o Frontend
 
 Base URL local:
 
@@ -6,7 +6,7 @@ Base URL local:
 http://localhost:8080
 ```
 
-A autenticacao usa cookie HTTP-only. O frontend nao precisa ler nem salvar JWT manualmente. Depois de `POST /auth/login` ou `POST /auth/register`, o backend envia o cookie `observaacao_token`.
+A autenticação usa cookie HTTP-only. O frontend não precisa ler nem salvar JWT manualmente. Depois de `POST /auth/login` ou `POST /auth/register`, o backend envia o cookie `observaação_token`.
 
 No frontend, envie credenciais em todas as chamadas autenticadas:
 
@@ -36,7 +36,7 @@ ALTA
 CRITICA
 ```
 
-Status de solicitacao:
+Status de solicitação:
 
 ```txt
 ABERTO
@@ -61,7 +61,7 @@ SERVIDOR
 POST http://localhost:8080/auth/register
 ```
 
-Autenticacao: publica.
+Autenticação: publica.
 
 Body:
 
@@ -81,9 +81,9 @@ Regras:
 - `email` obrigatorio e deve ser email valido.
 - `password` obrigatorio, minimo 8 caracteres.
 - `cpf` opcional, mas se enviado deve ser valido.
-- novo usuario sempre nasce como `CIDADAO`.
+- novo usuário sempre nasce como `CIDADAO`.
 
-Retorna: `201 Created`, seta cookie `observaacao_token` e retorna o usuario criado.
+Retorna: `201 Created`, seta cookie `observaação_token` e retorna o usuário criado.
 
 ```json
 {
@@ -100,7 +100,7 @@ Retorna: `201 Created`, seta cookie `observaacao_token` e retorna o usuario cria
 Headers relevantes:
 
 ```txt
-Set-Cookie: observaacao_token=...
+Set-Cookie: observaação_token=...
 Location: http://localhost:8080/user/{id}
 ```
 
@@ -110,7 +110,7 @@ Location: http://localhost:8080/user/{id}
 POST http://localhost:8080/auth/login
 ```
 
-Autenticacao: publica.
+Autenticação: publica.
 
 Body:
 
@@ -121,7 +121,7 @@ Body:
 }
 ```
 
-Retorna: `200 OK`, seta cookie `observaacao_token` e retorna o usuario autenticado.
+Retorna: `200 OK`, seta cookie `observaação_token` e retorna o usuário autenticado.
 
 ```json
 {
@@ -141,21 +141,21 @@ Retorna: `200 OK`, seta cookie `observaacao_token` e retorna o usuario autentica
 POST http://localhost:8080/auth/logout
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
-Body: nao precisa.
+Body: não precisa.
 
-Retorna: `204 No Content` e remove o cookie de autenticacao.
+Retorna: `204 No Content` e remove o cookie de autenticação.
 
-### Usuario Logado
+### Usuário Logado
 
 ```txt
 GET http://localhost:8080/auth/me
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
-Body: nao precisa.
+Body: não precisa.
 
 Retorna: `200 OK`.
 
@@ -171,23 +171,23 @@ Retorna: `200 OK`.
 }
 ```
 
-## Usuarios
+## Usuários
 
-### Buscar Usuario Por ID
+### Buscar Usuário Por ID
 
 ```txt
 GET http://localhost:8080/user/{id}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID do usuario
+id: UUID do usuário
 ```
 
-Body: nao precisa.
+Body: não precisa.
 
 Retorna: `200 OK`.
 
@@ -211,14 +211,14 @@ Retorna: `200 OK`.
 POST http://localhost:8080/categorias
 ```
 
-Autenticacao: `SERVIDOR`.
+Autenticação: `SERVIDOR`.
 
 Body:
 
 ```json
 {
-  "nome": "Iluminacao publica",
-  "descricao": "Problemas com postes, lampadas e iluminacao urbana",
+  "nome": "Iluminação publica",
+  "descricao": "Problemas com postes, lampadas e iluminação urbana",
   "sensivel": false,
   "ativa": true
 }
@@ -228,15 +228,15 @@ Observacoes:
 
 - `nome` obrigatorio.
 - `sensivel` obrigatorio.
-- `ativa` e opcional na criacao; a entidade nasce ativa por padrao.
+- `ativa` e opcional na criação; a entidade nasce ativa por padrao.
 
 Retorna: `201 Created`.
 
 ```json
 {
   "id": "uuid",
-  "nome": "Iluminacao publica",
-  "descricao": "Problemas com postes, lampadas e iluminacao urbana",
+  "nome": "Iluminação publica",
+  "descricao": "Problemas com postes, lampadas e iluminação urbana",
   "sensivel": false,
   "ativa": true,
   "createdAt": "2026-06-04T19:41:42",
@@ -250,9 +250,9 @@ Retorna: `201 Created`.
 GET http://localhost:8080/categorias
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
-Body: nao precisa.
+Body: não precisa.
 
 Retorna: `200 OK`.
 
@@ -260,8 +260,8 @@ Retorna: `200 OK`.
 [
   {
     "id": "uuid",
-    "nome": "Iluminacao publica",
-    "descricao": "Problemas com postes, lampadas e iluminacao urbana",
+    "nome": "Iluminação publica",
+    "descricao": "Problemas com postes, lampadas e iluminação urbana",
     "sensivel": false,
     "ativa": true,
     "createdAt": "2026-06-04T19:41:42",
@@ -276,7 +276,7 @@ Retorna: `200 OK`.
 GET http://localhost:8080/categorias/{id}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
@@ -289,8 +289,8 @@ Retorna: `200 OK`.
 ```json
 {
   "id": "uuid",
-  "nome": "Iluminacao publica",
-  "descricao": "Problemas com postes, lampadas e iluminacao urbana",
+  "nome": "Iluminação publica",
+  "descricao": "Problemas com postes, lampadas e iluminação urbana",
   "sensivel": false,
   "ativa": true,
   "createdAt": "2026-06-04T19:41:42",
@@ -304,7 +304,7 @@ Retorna: `200 OK`.
 PUT http://localhost:8080/categorias/{id}
 ```
 
-Autenticacao: `SERVIDOR`.
+Autenticação: `SERVIDOR`.
 
 Path:
 
@@ -331,7 +331,7 @@ Retorna: `200 OK`.
 DELETE http://localhost:8080/categorias/{id}
 ```
 
-Autenticacao: `SERVIDOR`.
+Autenticação: `SERVIDOR`.
 
 Path:
 
@@ -339,26 +339,26 @@ Path:
 id: UUID da categoria
 ```
 
-Body: nao precisa.
+Body: não precisa.
 
 Retorna: `204 No Content`.
 
-## Solicitacoes
+## Solicitações
 
-### Abrir Solicitacao
+### Abrir Solicitação
 
 ```txt
 POST http://localhost:8080/solicitacoes
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Body:
 
 ```json
 {
   "titulo": "Poste apagado",
-  "descricao": "Poste sem iluminacao ha 3 dias",
+  "descricao": "Poste sem iluminação ha 3 dias",
   "bairro": "Centro",
   "endereco": "Rua A, 123",
   "prioridade": "MEDIA",
@@ -371,8 +371,8 @@ Regras:
 
 - `titulo`, `descricao`, `bairro`, `prioridade`, `anonima` e `categoriaId` sao obrigatorios.
 - `endereco` e opcional.
-- se a categoria for sensivel, a solicitacao fica anonima mesmo que `anonima` seja `false`.
-- o usuario da solicitacao e obtido pelo cookie de autenticacao.
+- se a categoria for sensivel, a solicitação fica anonima mesmo que `anonima` seja `false`.
+- o usuário da solicitação e obtido pelo cookie de autenticação.
 
 Retorna: `201 Created`.
 
@@ -381,16 +381,16 @@ Retorna: `201 Created`.
   "id": "uuid",
   "protocolo": "OBS-2026-AB12CD34",
   "titulo": "Poste apagado",
-  "descricao": "Poste sem iluminacao ha 3 dias",
+  "descricao": "Poste sem iluminação ha 3 dias",
   "bairro": "Centro",
   "endereco": "Rua A, 123",
   "status": "ABERTO",
   "prioridade": "MEDIA",
   "anonima": false,
   "categoriaId": "uuid-da-categoria",
-  "categoriaNome": "Iluminacao publica",
-  "cidadaoId": "uuid-do-usuario",
-  "cidadaoNome": "Gabriel",
+  "categoriaNome": "Iluminação publica",
+  "cidadãoId": "uuid-do-usuário",
+  "cidadãoNome": "Gabriel",
   "prazoAlvo": "2026-06-14T19:41:42",
   "createdAt": "2026-06-04T19:41:42",
   "updatedAt": null
@@ -403,7 +403,7 @@ Retorna: `201 Created`.
 GET http://localhost:8080/solicitacoes
 ```
 
-Autenticacao: `SERVIDOR`.
+Autenticação: `SERVIDOR`.
 
 Query params opcionais:
 
@@ -422,33 +422,33 @@ GET /solicitacoes?status=ABERTO&prioridade=ALTA
 GET /solicitacoes?categoriaId=uuid&bairro=Centro
 ```
 
-Body: nao precisa.
+Body: não precisa.
 
-Retorna: `200 OK`, lista de solicitacoes.
+Retorna: `200 OK`, lista de solicitações.
 
-### Listar Minhas Solicitacoes
+### Listar Minhas Solicitações
 
 ```txt
 GET http://localhost:8080/solicitacoes/minhas
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
-Body: nao precisa.
+Body: não precisa.
 
-Retorna: `200 OK`, lista de solicitacoes do usuario logado.
+Retorna: `200 OK`, lista de solicitações do usuário logado.
 
-### Listar Solicitacoes Atrasadas
+### Listar Solicitações Atrasadas
 
 ```txt
 GET http://localhost:8080/solicitacoes/atrasadas
 ```
 
-Autenticacao: `SERVIDOR`.
+Autenticação: `SERVIDOR`.
 
-Body: nao precisa.
+Body: não precisa.
 
-Retorna: `200 OK`, lista de solicitacoes atrasadas.
+Retorna: `200 OK`, lista de solicitações atrasadas.
 
 ### Consultar Por Protocolo
 
@@ -456,12 +456,12 @@ Retorna: `200 OK`, lista de solicitacoes atrasadas.
 GET http://localhost:8080/solicitacoes/protocolo/{protocolo}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-protocolo: protocolo publico da solicitacao
+protocolo: protocolo publico da solicitação
 ```
 
 Exemplo:
@@ -470,56 +470,56 @@ Exemplo:
 GET /solicitacoes/protocolo/OBS-2026-AB12CD34
 ```
 
-Body: nao precisa.
+Body: não precisa.
 
-Retorna: `200 OK`, uma solicitacao.
+Retorna: `200 OK`, uma solicitação.
 
-### Buscar Solicitacao Por ID
+### Buscar Solicitação Por ID
 
 ```txt
 GET http://localhost:8080/solicitacoes/{id}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID da solicitacao
+id: UUID da solicitação
 ```
 
 Regra de acesso:
 
-- `SERVIDOR` pode ver qualquer solicitacao.
-- `CIDADAO` so pode ver solicitacoes dele.
+- `SERVIDOR` pode ver qualquer solicitação.
+- `CIDADAO` so pode ver solicitações dele.
 
-Retorna: `200 OK`, uma solicitacao.
+Retorna: `200 OK`, uma solicitação.
 
-### Atualizar Solicitacao
+### Atualizar Solicitação
 
 ```txt
 PUT http://localhost:8080/solicitacoes/{id}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID da solicitacao
+id: UUID da solicitação
 ```
 
 Regra de acesso:
 
-- `SERVIDOR` pode atualizar qualquer solicitacao.
-- `CIDADAO` so pode atualizar solicitacoes dele.
+- `SERVIDOR` pode atualizar qualquer solicitação.
+- `CIDADAO` so pode atualizar solicitações dele.
 
 Body:
 
 ```json
 {
   "titulo": "Poste apagado",
-  "descricao": "Poste continua sem iluminacao",
+  "descricao": "Poste continua sem iluminação",
   "bairro": "Centro",
   "endereco": "Rua A, 123",
   "prioridade": "ALTA",
@@ -528,7 +528,7 @@ Body:
 }
 ```
 
-Retorna: `200 OK`, solicitacao atualizada.
+Retorna: `200 OK`, solicitação atualizada.
 
 ### Atualizar Status
 
@@ -536,12 +536,12 @@ Retorna: `200 OK`, solicitacao atualizada.
 PATCH http://localhost:8080/solicitacoes/{id}/status
 ```
 
-Autenticacao: `SERVIDOR`.
+Autenticação: `SERVIDOR`.
 
 Path:
 
 ```txt
-id: UUID da solicitacao
+id: UUID da solicitação
 ```
 
 Body:
@@ -549,7 +549,7 @@ Body:
 ```json
 {
   "status": "TRIAGEM",
-  "comentario": "Solicitacao encaminhada para triagem"
+  "comentario": "Solicitação encaminhada para triagem"
 }
 ```
 
@@ -559,26 +559,26 @@ Regras:
 - `comentario` obrigatorio.
 - fluxo permitido: `ABERTO -> TRIAGEM -> EM_EXECUCAO -> RESOLVIDO -> ENCERRADO`.
 
-Retorna: `200 OK`, solicitacao atualizada.
+Retorna: `200 OK`, solicitação atualizada.
 
-### Historico Da Solicitacao
+### Histórico Da Solicitação
 
 ```txt
-GET http://localhost:8080/solicitacoes/{id}/historico
+GET http://localhost:8080/solicitacoes/{id}/histórico
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID da solicitacao
+id: UUID da solicitação
 ```
 
 Regra de acesso:
 
-- `SERVIDOR` pode ver qualquer historico.
-- `CIDADAO` so pode ver historico de solicitacoes dele.
+- `SERVIDOR` pode ver qualquer histórico.
+- `CIDADAO` so pode ver histórico de solicitações dele.
 
 Retorna: `200 OK`.
 
@@ -586,10 +586,10 @@ Retorna: `200 OK`.
 [
   {
     "id": "uuid",
-    "solicitacaoId": "uuid-da-solicitacao",
+    "solicitaçãoId": "uuid-da-solicitação",
     "statusAnterior": null,
     "statusNovo": "ABERTO",
-    "comentario": "Solicitacao aberta",
+    "comentario": "Solicitação aberta",
     "servidorId": null,
     "servidorNome": null,
     "createdAt": "2026-06-04T19:41:42"
@@ -597,55 +597,55 @@ Retorna: `200 OK`.
 ]
 ```
 
-### Remover Solicitacao
+### Remover Solicitação
 
 ```txt
 DELETE http://localhost:8080/solicitacoes/{id}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID da solicitacao
+id: UUID da solicitação
 ```
 
 Regra de acesso:
 
-- `SERVIDOR` pode remover qualquer solicitacao.
-- `CIDADAO` so pode remover solicitacoes dele.
+- `SERVIDOR` pode remover qualquer solicitação.
+- `CIDADAO` so pode remover solicitações dele.
 
-Body: nao precisa.
+Body: não precisa.
 
 Retorna: `204 No Content`.
 
-## Historicos Status
+## Históricos Status
 
-### Listar Historicos
-
-```txt
-GET http://localhost:8080/historicos-status
-```
-
-Autenticacao: autenticada.
-
-Body: nao precisa.
-
-Retorna: `200 OK`, lista de historicos.
-
-### Buscar Historico Por ID
+### Listar Históricos
 
 ```txt
-GET http://localhost:8080/historicos-status/{id}
+GET http://localhost:8080/históricos-status
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
+
+Body: não precisa.
+
+Retorna: `200 OK`, lista de históricos.
+
+### Buscar Histórico Por ID
+
+```txt
+GET http://localhost:8080/históricos-status/{id}
+```
+
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID do historico
+id: UUID do histórico
 ```
 
 Retorna: `200 OK`.
@@ -653,31 +653,31 @@ Retorna: `200 OK`.
 ```json
 {
   "id": "uuid",
-  "solicitacaoId": "uuid-da-solicitacao",
+  "solicitaçãoId": "uuid-da-solicitação",
   "statusAnterior": "ABERTO",
   "statusNovo": "TRIAGEM",
-  "comentario": "Solicitacao encaminhada para triagem",
+  "comentario": "Solicitação encaminhada para triagem",
   "servidorId": "uuid-do-servidor",
   "servidorNome": "Servidor",
   "createdAt": "2026-06-04T19:41:42"
 }
 ```
 
-### Remover Historico
+### Remover Histórico
 
 ```txt
-DELETE http://localhost:8080/historicos-status/{id}
+DELETE http://localhost:8080/históricos-status/{id}
 ```
 
-Autenticacao: autenticada.
+Autenticação: autenticada.
 
 Path:
 
 ```txt
-id: UUID do historico
+id: UUID do histórico
 ```
 
-Body: nao precisa.
+Body: não precisa.
 
 Retorna: `204 No Content`.
 
@@ -689,7 +689,7 @@ Retorna: `204 No Content`.
 GET http://localhost:8080/common/prioridades
 ```
 
-Autenticacao: publica.
+Autenticação: publica.
 
 Retorna:
 
@@ -697,13 +697,13 @@ Retorna:
 ["BAIXA", "MEDIA", "ALTA", "CRITICA"]
 ```
 
-### Listar Status De Solicitacao
+### Listar Status De Solicitação
 
 ```txt
-GET http://localhost:8080/common/status-solicitacao
+GET http://localhost:8080/common/status-solicitação
 ```
 
-Autenticacao: publica.
+Autenticação: publica.
 
 Retorna:
 
@@ -717,7 +717,7 @@ Retorna:
 GET http://localhost:8080/common/roles
 ```
 
-Autenticacao: publica.
+Autenticação: publica.
 
 Retorna:
 
@@ -727,8 +727,8 @@ Retorna:
 
 ## Observacoes Para o Frontend
 
-- O token JWT fica em cookie HTTP-only, entao o frontend nao deve tentar ler o token.
+- O token JWT fica em cookie HTTP-only, entao o frontend não deve tentar ler o token.
 - Todas as chamadas autenticadas devem usar `credentials: "include"` ou `withCredentials: true`.
-- Se uma solicitacao for anonima, `cidadaoNome` retorna `null`.
+- Se uma solicitação for anonima, `cidadãoNome` retorna `null`.
 - Se a categoria for sensivel, o backend forca `anonima: true`.
 - Erros atualmente podem retornar mensagens simples vindas de excecoes do backend.

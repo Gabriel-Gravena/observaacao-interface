@@ -7,7 +7,7 @@ export default function GlobalError({ reset }: { reset: () => void }) {
     <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
       <ErrorState
         title="Algo deu errado"
-        description="Nao foi possivel carregar esta pagina."
+        description="Não foi possivel carregar esta pagina."
         onRetry={reset}
       />
     </main>

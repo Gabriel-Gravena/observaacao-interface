@@ -39,13 +39,13 @@ export function CitizenRequestsView() {
   return (
     <>
       <PageHeader
-        title="Minhas solicitacoes"
-        description="Acompanhe o andamento das solicitacoes registradas por voce."
+        title="Minhas solicitações"
+        description="Acompanhe o andamento das solicitações registradas por você."
         action={
           <Button asChild>
             <Link href={routes.citizenNewRequest}>
               <Plus />
-              Abrir solicitacao
+              Abrir solicitação
             </Link>
           </Button>
         }
@@ -56,11 +56,11 @@ export function CitizenRequestsView() {
         <ErrorState description={getApiErrorMessage(error)} onRetry={reload} />
       ) : requests.length === 0 ? (
         <EmptyState
-          title="Nenhuma solicitacao para exibir"
-          description="Abra uma solicitacao para acompanhar o atendimento por aqui."
+          title="Nenhuma solicitação para exibir"
+          description="Abra uma solicitação para acompanhar o atendimento por aqui."
           action={
             <Button variant="outline" asChild>
-              <Link href={routes.citizenNewRequest}>Abrir primeira solicitacao</Link>
+              <Link href={routes.citizenNewRequest}>Abrir primeira solicitação</Link>
             </Button>
           }
         />
@@ -73,7 +73,7 @@ export function CitizenRequestsView() {
           ) : (
             <EmptyState
               title="Nenhum resultado encontrado"
-              description="Altere ou limpe os filtros para visualizar outras solicitacoes."
+              description="Altere ou limpe os filtros para visualizar outras solicitações."
             />
           )}
         </>

@@ -19,7 +19,7 @@ export function HomeRedirect() {
   return (
     <main className="flex min-h-screen items-center justify-center">
       <p className="text-sm text-muted-foreground" role="status">
-        Carregando ObservaAcao...
+        Carregando ObservaAção...
       </p>
     </main>
   )
